@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('alamat');
             $table->string('no_hp');
-            $table->integer('level_id');
+            $table->string('level');
             $table->timestamps();
         });
     }

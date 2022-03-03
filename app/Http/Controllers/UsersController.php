@@ -36,7 +36,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create($request->all());
+        return redirect('/users');
     }
 
     /**
@@ -71,7 +72,9 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->all());
+        return redirect('users');
     }
 
     /**

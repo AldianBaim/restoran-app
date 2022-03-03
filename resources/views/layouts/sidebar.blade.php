@@ -18,11 +18,11 @@
     </div>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{ url('users') }}">
             <i class="fas fa-fw fa-table"></i>
-            <span>Data Aktifitas Pegawai</span></a>
-    </li>
+            <span>Data Pegawai</span></a>
+    </li> --}}
     <!-- Nav Item - Tables -->
     {{-- <li class="nav-item">
         <a class="nav-link" href="{{ url('users') }}">
