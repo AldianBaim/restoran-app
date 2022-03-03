@@ -37,7 +37,7 @@
                             <form action="{{ url('menu/' . $menu->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Apakah anda yakin akan dihapus?')"
+                                <button type="submit" onclick="return confirm(' Apakah anda yakin ingin menghapus? ')"
                                     class="btn btn-danger"
                                     style="border: 0px;border-radius: 0;margin: 0 -5px">Hapus</button>
                             </form>

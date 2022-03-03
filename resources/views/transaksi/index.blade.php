@@ -3,76 +3,37 @@
 @section('content')
 
 <h2>transaksi</h2>
-      <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="transaksi/create" class="btn btn-success">Tambah menu</a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Menu makanan</th>
-                                            <th>Harga</th>
-                                            <th>Stok</th>
-                                            <th>Start date</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>
-                                                <a href="" class="btn btn-primary">Edit</a>
-                                                <a href="" class="btn btn-danger">Delete</a>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>
-                                                <a href="" class="btn btn-primary">Edit</a>
-                                                <a href="" class="btn btn-danger">Delete</a>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>
-                                                <a href="" class="btn btn-primary">Edit</a>
-                                                <a href="" class="btn btn-danger">Delete</a>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>
-                                                <a href="" class="btn btn-primary">Edit</a>
-                                                <a href="" class="btn btn-danger">Delete</a>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No transaksi</th>
+                        <th>Tanggal</th>
+                        <th>Nama Customer</th>
+                        <th>No Meja</th>
+                        <th>Total Harga</th>
+                        <th>Bayar</th>
+                        <th>Kembalian</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($transaksis as $transaksi)
+                    <tr>
+                        <td>{{ $transaksi->id }}</td>
+                        <td>{{ $transaksi->tanggal }}</td>
+                        <td>{{ $transaksi->nama_customer }}</td>
+                        <td>{{ $transaksi->no_meja }}</td>
+                        <td>{{ $transaksi->total_harga }}</td>
+                        <td>{{ $transaksi->bayar }}</td>
+                        <td>{{ $transaksi->kembalian }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 @endsection

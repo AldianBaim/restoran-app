@@ -4,7 +4,7 @@
 
 <h2>tambah menu</h2>
 
-<form action="{{ url('menu/' . $menu->id) }}" method="POST">
+<form action="{{ url('menu/' . $menu->id) }}" method="POST" enctype="multipart/form-data">
     @method('PUT')
     @CSRF
     <div class="form-group">
@@ -23,6 +23,10 @@
     <div class="form-group">
         <label for="">Harga</label>
         <input type="number" name="harga" value="{{ $menu->harga }}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="">Gambar</label>
+        <input type="file" name="gambar" class="form-control">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>

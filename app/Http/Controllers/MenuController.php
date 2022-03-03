@@ -81,6 +81,17 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($request->hasFile('gambar')) {
+            $img = $request->file('gambar')->getClientOriginalName();
+            $request->gambar->storeAs('public/images', $img);
+            Menu::where('id', $id)->update([
+                'nama_menu' => $request->nama_menu,
+                'harga' => $request->harga,
+                'jenis' => $request->jenis,
+                'gambar' => $img,
+            ]);
+            return redirect('menu');
+        }
         $menu = Menu::find($id);
         $menu->update($request->all());
         return redirect('menu');
