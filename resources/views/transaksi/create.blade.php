@@ -2,12 +2,12 @@
 
 @section('content')
 
- <h2>tambah transaksi</h2>
+<h2>tambah menu</h2>
 
- <form action="">
-     <div class="form-group">
-         <label for=""></label>
-     </div>
- </form>
+<form action="">
+    <div class="form-group">
+        <label for=""></label>
+    </div>
+</form>
 
 @endsection

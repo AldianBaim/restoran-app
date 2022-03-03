@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -13,7 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view('menu.index');
+        $data['menus'] = Menu::all();
+        return view('menu.index', $data);
     }
 
     /**
@@ -23,7 +25,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('menu.create');
     }
 
     /**
@@ -34,7 +36,17 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->hasFile('gambar')) {
+            $img = $request->file('gambar')->getClientOriginalName();
+            $request->gambar->storeAs('public/images', $img);
+            Menu::create([
+                'nama_menu' => $request->nama_menu,
+                'harga' => $request->harga,
+                'jenis' => $request->jenis,
+                'gambar' => $img,
+            ]);
+            return redirect('menu');
+        }
     }
 
     /**
@@ -56,7 +68,8 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['menu'] = Menu::find($id);
+        return view('menu.edit', $data);
     }
 
     /**
@@ -68,7 +81,9 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $menu = Menu::find($id);
+        $menu->update($request->all());
+        return redirect('menu');
     }
 
     /**
@@ -79,6 +94,8 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $menu = Menu::find($id);
+        $menu->delete();
+        return back();
     }
 }
