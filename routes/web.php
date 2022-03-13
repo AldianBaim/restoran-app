@@ -21,3 +21,8 @@ Route::resource('users', 'UsersController');
 Route::resource('menu', 'MenuController');
 Route::resource('meja', 'MejaController');
 Route::resource('transaksi', 'TransaksiController');
+Route::resource('orderan', 'OrderanController');
+
+Route::get('login', 'AuthController@login');
+Route::post('doLogin', 'AuthController@doLogin');
+Route::get('logout', 'AuthController@logout');

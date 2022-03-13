@@ -17,6 +17,7 @@
                         <th>Email</th>
                         <th>No HP</th>
                         <th>Alamat</th>
+                        <th>Jabatan</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,6 +29,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->no_hp }}</td>
                         <td>{{ $user->alamat }}</td>
+                        <td>{{ $user->level }}</td>
                         <td>
                             <a href="{{ url('users') }}/{{ $user->id }}/edit" class="btn btn-primary">Edit</a>
                             <form action="{{ url('users/' . $user->id) }}" method="POST" class="d-inline">

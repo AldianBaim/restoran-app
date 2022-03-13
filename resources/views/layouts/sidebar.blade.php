@@ -13,36 +13,45 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Heading -->
-    <div class="sidebar-heading">
-        Manager
+    <div class="sidebar-heading text-white">
+        {{ session()->get('level') }}
     </div>
 
-    <!-- Nav Item - Tables -->
-    {{-- <li class="nav-item">
+    @if(session()->get('level') == 'kasir')
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('orderan') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Data Orderan</span></a>
+    </li>
+    @endif
+
+    @if(session()->get('level') == 'admin')
+    <li class="nav-item">
         <a class="nav-link" href="{{ url('users') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Data Pegawai</span></a>
-    </li> --}}
-    <!-- Nav Item - Tables -->
-    {{-- <li class="nav-item">
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{ url('users') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Data Pengguna</span></a>
-    </li> --}}
+    </li>
+    @endif
 
-    <!-- Nav Item - Tables -->
+    @if(session()->get('level') == 'manager')
     <li class="nav-item">
         <a class="nav-link" href="{{ url('menu') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Data Menu</span></a>
     </li>
 
-    <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="{{ url('transaksi') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Transaksi</span></a>
     </li>
+    @endif
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
